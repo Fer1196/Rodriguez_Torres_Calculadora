@@ -26,6 +26,7 @@ public class OperacionesVista extends AppCompatActivity implements View.OnClickL
         this.txtN1 = (TextInputLayout) findViewById(R.id.txtN1);
         this.txtN2 = (TextInputLayout) findViewById(R.id.txtN2);
         presentador = new OperacionesPresentador(this);
+
     }
     @Override
     public void onClick(View view) {

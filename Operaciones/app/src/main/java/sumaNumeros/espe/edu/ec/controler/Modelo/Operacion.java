@@ -112,6 +112,11 @@ public class Operacion {
      * Funcion que divide 2 numeros
      */
     public double dividir(){
-        return Double.valueOf(twoDForm.format(this.N1 / this.N2));
+        try{
+            return Double.valueOf(twoDForm.format(this.N1 / this.N2));
+        }
+        catch (Exception e){
+            throw e;
+        }
     }
 }

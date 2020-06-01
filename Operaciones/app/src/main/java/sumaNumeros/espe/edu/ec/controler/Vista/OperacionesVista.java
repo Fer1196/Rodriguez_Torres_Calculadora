@@ -3,10 +3,8 @@ package sumaNumeros.espe.edu.ec.controler.Vista;
 import androidx.appcompat.app.AppCompatActivity;
 import sumaNumeros.espe.edu.ec.R;
 import sumaNumeros.espe.edu.ec.controler.Interface.IOPeraciones;
-import sumaNumeros.espe.edu.ec.controler.Modelo.Operacion;
 import sumaNumeros.espe.edu.ec.controler.Presentador.OperacionesPresentador;
 
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +13,7 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class OperacionesVista extends AppCompatActivity implements View.OnClickListener, IOPeraciones.Vista, BottonSheetOperaciones.BottomSheetListner {
-    private Button btnSumar;
+    private Button btnOperation;
     private TextInputLayout txtN1;
     private TextInputLayout txtN2;
     private IOPeraciones.Presentador presentador;
@@ -23,8 +21,8 @@ public class OperacionesVista extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.btnSumar = (Button) findViewById(R.id.btnSumar);
-        this.btnSumar.setOnClickListener(this);
+        this.btnOperation = (Button) findViewById(R.id.btnSumar);
+        this.btnOperation.setOnClickListener(this);
         this.txtN1 = (TextInputLayout) findViewById(R.id.txtN1);
         this.txtN2 = (TextInputLayout) findViewById(R.id.txtN2);
         presentador = new OperacionesPresentador(this);
@@ -40,6 +38,12 @@ public class OperacionesVista extends AppCompatActivity implements View.OnClickL
                 break;
         }
     }
+
+
+    /**
+     * Funcion tipo void()
+     * Limpia las dos cajas de textas
+     */
     public void limpiarData(){
         this.txtN1.getEditText().setText("");
         this.txtN2.getEditText().setText("");
@@ -49,6 +53,12 @@ public class OperacionesVista extends AppCompatActivity implements View.OnClickL
         this.txtN1.clearFocus();
 
     }
+
+
+    /**
+     * @param txt parametro de un textbox, valida que la caja no este vacia y contenga un valor valido
+     * @return true si el valor es valido y false si esta nulo
+     */
     public boolean validar(TextInputLayout txt){
         if(txt.getEditText().getText().length()==0){
             txt.setErrorEnabled(true);

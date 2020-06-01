@@ -7,6 +7,13 @@ import sumaNumeros.espe.edu.ec.controler.Modelo.OperacionesModelo;
 public class OperacionesPresentador implements IOPeraciones.Presentador {
     private IOPeraciones.Vista vista;
     private  IOPeraciones.Modelo modelo;
+
+
+    /**
+     * @param view parametro de interfaz tipo vista
+     * Sirve para conectar la vista con el presentador
+     * Crea una instancia de la interfaz modelo
+     */
     public OperacionesPresentador (IOPeraciones.Vista view) {
         this.vista = view;
         this.modelo = new OperacionesModelo(this);
